@@ -1,0 +1,23 @@
+docker start <> - перезапуск контейнера который был остановлен и виден в docker ps -a
+docker stop <> - остановка запущенного контейнера
+
+docker run -h имя_хоста_сами_задаём -it ubuntu bash ???? что такое -h
+docker inspect <> - инфа о контейнере
+docker inspect <> | grep IPAddress - фильтровать
+
+docker run --name Имя_сами_задаём -it ubuntu bash
+
+docker diff <> - список файолов измененных в работающем контейнере
+
+docker logs <> - список событий выполненных в контейнере
+
+docker rm <> - удалить контейнер
+
+docker ps -aq -f status=exited - вывести id всех остановленных контейнеров
+docker rm -v $(docker ps -aq -f status=exited)
+
+docker run -d <> - "-d" = в фоновом режиме
+
+docker run -d -p 1234:8080 <> - "-p наш:контейнер" порт
+
+docker images - список образов
