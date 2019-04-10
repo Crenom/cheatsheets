@@ -1,6 +1,8 @@
 docker start <> - перезапуск контейнера который был остановлен и виден в docker ps -a
 docker stop <> - остановка запущенного контейнера
 
+docker run <имя имейджа>
+
 docker run -h имя_хоста_сами_задаём -it ubuntu bash ???? что такое -h
 docker inspect <> - инфа о контейнере
 docker inspect <> | grep IPAddress - фильтровать
