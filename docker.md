@@ -11,18 +11,32 @@
 - https://docs.docker.com/compose/install/ - *docker compose*
 
 ## Работа с образами
-docker run *<image_id>*  
- - --name - назвать контейнер который запустится из данного имейджа
- - -d, --detach - запуск в бэкграунде
- - -i, --interactive - оставляет соединение
- - -t, --tty - подключает терминал. Пример docker run -it *<image_id>* bash
- - -p, --publish - проброс портов. Пример -p наш\_порт:порт\_контейнера
- - -P, --publish-all  - **уточнить**
- - -v, --volume - подключение внешней папки
+**docker images** - отобразит все образы  
+**docker rmi *<image_id>*** - удалить один или несколько образов  
+
+**docker run *<image_id>*** - запустить контейнер из образа  
+
+    --name - назвать контейнер который запустится из данного имейджа
+    -d, --detach - запуск в бэкграунде
+    -i, --interactive - оставляет соединение
+    -t, --tty - подключает терминал. Пример docker run -it *<image_id>* bash
+    -p, --publish - проброс портов. Пример -p наш\_порт:порт\_контейнера
+    -P, --publish-all  - **уточнить**
+    -v, --volume - подключение внешней папки
+
+**docker search** -
+**docker build**
+**docker commit**
+**docker history**
+**docker tags**
+**docker import**
+**docker export**
+
 
 
 
 ## Работа с контейнерами
+
 docker start *<container_id>* - перезапуск контейнера который был остановлен и виден в docker ps -a
 docker stop *<container_id>* - остановка запущенного контейнера
 
