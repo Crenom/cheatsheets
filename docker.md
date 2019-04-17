@@ -10,7 +10,7 @@
 - https://docs.docker.com/install/linux/docker-ce/ubuntu/ - *community edition*
 - https://docs.docker.com/compose/install/ - *docker compose*
 
-## Работа с имеджами
+## Работа с образами
 docker run *<image_id>*  
  - --name - назвать контейнер который запустится из данного имейджа
  - -d, --detach - запуск в бэкграунде
@@ -51,5 +51,24 @@ docker images - список образов
 
 ## Полезная информация
 Добавить docker в группу sudo:  
-- sudo ussermod -aG docker *$(whoami)*
-- sudo service docker restart
+
+    sudo ussermod -aG docker $(whoami)
+    sudo service docker restart
+
+Получить информацию по контейнеру
+
+    docker stats <container_id>
+
+
+Посмотреть каждый уровень контейнерами
+
+    docker history <container_id>
+
+Мануал докер
+
+    man docker-build
+
+
+## Доработать
+
+    docker build -t <tag_name> (-t - задаёт назщвание тега)
