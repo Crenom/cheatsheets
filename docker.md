@@ -24,19 +24,20 @@
     -P, --publish-all  - **уточнить**
     -v, --volume - подключение внешней папки
 
-**docker search** -
-**docker build**
-**docker commit**
-**docker history**
-**docker tags**
-**docker import**
-**docker export**
+**docker search *<anything>*** - поиск образа на докер хабе  
+**docker build** - создать образ из докерфайла  
+**docker tag** - создать тег для репозитория  
+**docker history** - показать историю образа  
+**docker import *<tgz>*** - создать образ из tgz  
+**docker export *<container_id>**** - создать tar из контейнера  
+
+    --output, -o - писать в файл. Пример docker export --output="latest.tar" red_panda
 
 
 
 
 ## Работа с контейнерами
-
+**docker commit**
 docker start *<container_id>* - перезапуск контейнера который был остановлен и виден в docker ps -a
 docker stop *<container_id>* - остановка запущенного контейнера
 
