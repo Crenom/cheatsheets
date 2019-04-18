@@ -14,22 +14,33 @@
 **docker search *[anything]*** - поиск образа на докер хабе  
 
     Примеры:
-    docker search nginx
-    docker search nginx -- filter stars=3 --no-trunc busybox
+      docker search nginx
+      docker search nginx -- filter stars=3 --no-trunc busybox
 
 
 **docker pull *[image_id]*** - выкачать образ из докер хаба  
 
     Примеры:
-    docker pull nginx
-    docker pull eon01/nginx localhost:5000/myadmin/nginx
+      docker pull nginx
+      docker pull eon01/nginx localhost:5000/myadmin/nginx
 
-**docker push *[image_id]*** - загрузка образа на докер хаб  
+**docker commit *[container_id]* *[docker_hub_name]/[image_name]*** - позволяет контейнер (работающий или остановленныйы) превратить в образ  
 
-    Примеры:
-    docker push eon01/nginx
-    docker push eon01/nginx localhost:5000/myadmin/nginx
+    Пример:
+      docker commit mycontainer my_dockerhub_name/my_new_image
+    Чтобы запустить:
+      docker run my_dockerhub_name/my_new_image
 
+**docker push *[image_id]***  
+**docker push *[docker_hub_name]/[image_name]*** - запушит контейнер в докерхаб  
+
+    Пример:
+      docker commit mycontainer my_dockerhub_name/my_new_image
+    Чтобы добавить тег (обычно это latest):
+      my_dockerhub_name/my_new_image:new_tag
+    Еще примеры:
+      docker push eon01/nginx
+      docker push eon01/nginx localhost:5000/myadmin/nginx
 
 ## Работа с образами
 **docker images** - отобразит все образы  
@@ -42,7 +53,9 @@
 
     Некоторые параметры:
     --name - назвать контейнер который запустится из данного имейджа
-    -d, --detach - запуск в бэкграунде
+    -h - задать имя хоста
+      Пример: если через терминал зайти на контейнер, будет root@newhostname:/#
+    -d, --detach - запуск в фоновом режиме
     -i, --interactive - оставляет соединение
     -t, --tty - подключает терминал.
       Пример: docker run -it [image_id] bash
@@ -81,17 +94,24 @@
 
     docker container prune --filter "until=24h" - удалит тех которые остановлены более суток назад
 
-**docker commit**  
-**docker rename *[old_name]* *[new_name]*** - переименование контейнера
+**docker rename *[old_name]* *[new_name]*** - переименование контейнера  
 
 ###### Инспектирование контейнера
-**docker inspect []** - инфа о контейнере  
-**docker inspect [] | grep IPAddress** - фильтровать  
+**docker inspect *[container_id]*** - получение гигантского списка с инфой о контейнере    
+
+    docker inspect [container_id] | grep IPAddress - отфильтрует информацию о контейнере оставит только IPAddress
+
+**docker diff *[container_id]*** - список файолов которые были измененны в работающем контейнере  
+
+**docker logs *[container_id]*** - список событий произошедших в контейнере (при выходе из контейнера этот список не уничтожается)  
 
 
-docker diff [] - список файолов измененных в работающем контейнере  
+## Dockerfile
 
-docker logs [] - список событий выполненных в контейнере  
+    FROM базовый_образ_операционной_системы
+
+    RUN 
+
 
 ## Работа с сетью
 Создание сети
