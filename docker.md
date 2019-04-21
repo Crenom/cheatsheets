@@ -2,6 +2,10 @@
 
 # Docker cheat sheet
 
+## Что это такое
+Image(образ)–собранная подсистема, необходимая для работы процесса, сохраненная в образе  
+Container–процесс, инициализированный на базе образа  
+
 ### Установка на Windows
 1. https://docs.docker.com/docker-for-windows/install/
 2. https://docs.docker.com/toolbox/ - *для более старых версий windows*
@@ -110,7 +114,7 @@
 
     FROM базовый_образ_операционной_системы
 
-    RUN 
+    RUN
 
 
 ## Работа с сетью
