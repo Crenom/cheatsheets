@@ -117,6 +117,32 @@ Container–процесс, инициализированный на базе �
     RUN
 
 
+    FROM <имя-образа> —какой образ использовать в качестве базы (должна быть первой строкой в любом Dockerfile).
+    •RUN<команда> —запустить указанную команду внутри контейнера.
+    •CMD <команда> —выполнить команду при запуске контейнера (обычно идет последней).
+    •EXPOSE <порт> —список портов, которые будет слушать контейнер (используется механизмом линковки).
+    •ADD<путь> <путь> —скопировать файл/каталог внутрь контейнера/образа (первый аргумент может быть URL).
+    •ENTRYPOINT <команда> —команда для запуска приложения в контейнере (по умолчанию /bin/sh-c).
+    •WORKDIR <путь> —сменить каталог внутри контейнера
+
+    ==
+    # Use an official Python runtime as a parent image
+    FROM python:2.7-slim
+
+    # Set the working directory to /app
+    WORKDIR /app
+    # Copy the current directory contents into the container at /app
+    ADD . /app
+    # Install any needed packages specified in requirements.txt
+    RUN pip install --trusted-host pypi.python.org -r req.txt
+    # Make port 80 available to the world outside this container
+    EXPOSE 80# Run app.py when the container launches
+    CMD ["python", "app.py"]
+
+    1) Создаем необходимые файлы (в примере это req.txt и app.py)
+    2) Запускаем build: dockerbuild --tag hello .
+    3) Запускаем контейнер из образа:dockerrun -p 4000:80 hello
+
 ## Работа с сетью
 Создание сети
 
@@ -173,6 +199,20 @@ docker network disconnect MyOverlayNetwork nginx
 
     man docker-build
 
+-----
+Передача образа
+1) Push в Docker Hub–реестр публичных и приватных репозиториев
+2) Передача образа файлом
+dockersave -o image_name.tar image_name
+dockerload -iimage_name.tar
+
+Передача образа. Docker Hub
+Push в Docker Hub
+•https://hub.docker.com
+•export DOCKER_ID_USER=“username”
+•dockerlogin
+•dockertag my_image$DOCKER_ID_USER/my_image
+•dockerpush $DOCKER_ID_USER/my_image
 
 ## Доработать
 
