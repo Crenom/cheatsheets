@@ -205,6 +205,16 @@ docker network disconnect MyOverlayNetwork nginx
 
     man docker-build
 
+
+    Если надо чтобы скрипт не вылетал:
+    echo "start.sh started"
+    sh ./sonar.sh start
+    while true
+    do
+      sleep 1000
+    done
+    echo "start.sh somehow stopped"
+
 -----
 Передача образа
 1) Push в Docker Hub–реестр публичных и приватных репозиториев
