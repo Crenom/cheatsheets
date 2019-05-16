@@ -154,6 +154,22 @@ ENTRYPOINT - команда для запуска приложения в кон
     1) Создаем необходимые файлы (в примере это req.txt и app.py)
     2) Запускаем build: dockerbuild --tag hello .
     3) Запускаем контейнер из образа:dockerrun -p 4000:80 hello
+    
+    ---
+    FROM ubuntu:18.04
+    ENV http_proxy http://...
+    ENV https_proxy https://...
+    ADD sonarqube-7.2.1 /sonarqube-7.2.1
+    RUN useradd -ms /bin/bash sonarqube && \
+        apt-get update -qq && apt-get upgrade -qq && apt-get -y install default-jdk && \
+        chmod 777 -R sonarqube-7.2.1/
+    EXPOSE 6060
+    WORKDIR /sonarqube-7.2.1/bin/linux-x86-64/
+
+    # CMD ["sonar.sh", "start"]
+    # CMD ./sonar.sh start
+    CMD ./start.sh
+    ---
 
 ## Работа с сетью
 Создание сети
