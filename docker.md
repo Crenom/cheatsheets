@@ -123,6 +123,11 @@ ENTRYPOINT - команда для запуска приложения в кон
 - exec: ENTRYPOINT ["executable", "param1", "param2"] (исполняемая форма, предпочтительно)  
 - shell: ENTRYPOINT command param1 param2 (форма оболочки)  
 
+
+    Отличия ENTRYPOINT от CMD:
+    https://habr.com/ru/company/southbridge/blog/329138/
+
+
 Примеры:  
 
     FROM <имя-образа>:<tag(не обязательно)> —какой образ использовать в качестве базы (должна быть первой строкой в любом Dockerfile).
