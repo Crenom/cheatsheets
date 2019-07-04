@@ -62,3 +62,8 @@ http://login:pass@wg.vesta.ru:8080
     Файловая система      Разм  Исп  Дост  Исп% смонтирована на
     /dev/sdb1             466G  452G   14G  97% /home
 
+
+
+
+---------
+for i in $(find . -name "*.war" -printf "%f\n" | cut -d. -f1); do echo $(mvn -Dmaven.test.skip=true -pl $i tomcat7:redeploy -Ppprd); done;
