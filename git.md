@@ -44,3 +44,11 @@ https://www.thegeekdiary.com/how-to-configure-docker-to-use-proxy/ (Method 2)
 Потом надо рестартнуть сервис докера: sudo service docker restart
 
 docker rm $(docker ps -aq)
+
+
+
+
+
+
+#### если прокся отвалилась
+    git config --global http.proxy http://proxy.mycompany:80
