@@ -218,7 +218,7 @@ docker network disconnect MyOverlayNetwork nginx
 ## Полезная информация
 Добавить docker в группу sudo:  
 
-    sudo ussermod -aG docker $(whoami)
+    sudo usermod -aG docker $(whoami)
     sudo service docker restart
 
 Получить информацию по контейнеру  
@@ -238,6 +238,10 @@ docker network disconnect MyOverlayNetwork nginx
       sleep 1000
     done
     echo "start.sh somehow stopped"
+    
+Docker behind proxy
+ 
+    https://docs.docker.com/config/daemon/systemd/
 
 -----
 Передача образа
