@@ -242,6 +242,11 @@ docker network disconnect MyOverlayNetwork nginx
 Docker behind proxy
  
     https://docs.docker.com/config/daemon/systemd/
+    
+    Конфигурация прокси для докера:
+    https://www.thegeekdiary.com/how-to-configure-docker-to-use-proxy/ (Method 2)
+    /etc/systemd/system/docker.service.d -> http-proxy.conf; https-proxy.conf
+
 
 -----
 Передача образа
